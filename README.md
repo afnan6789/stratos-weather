@@ -65,8 +65,7 @@ python app.py --unit F Karachi Dubai
 
 ## Error handling
 
-Stratos explicitly handles three failure modes the assessors test:
-
-1. **API slow / timeout** — `httpx` is configured with 8 s geocoding and 10 s weather timeouts. A clear message is shown; other cities continue loading.
-2. **API error response** — HTTP status errors are caught and reported per city without crashing.
-3. **Bad user input** — City names are validated before any network call: empty strings, single characters, and names containing digits are rejected with a specific error message.
+Stratos handles three failure modes explicitly:
+- **Slow API** — 8s geocoding and 10s weather timeouts
+- **API errors** — HTTP errors caught per city, others continue
+- **Bad input** — validated before any network call is made
